@@ -1,0 +1,33 @@
+{
+  "product": {
+    "notFound": "ઉત્પાદન મળ્યું નથી",
+    "notFoundDesc": "તમે શોધી રહેલા ઉત્પાદન ઉપલબ્ધ નથી અથવા દૂર કરવામાં આવ્યું છે.",
+    "backToProducts": "ઉત્પાદનો પર પાછા જાઓ",
+    "germination": "અંકુરણ",
+    "inStock": "સ્ટોકમાં",
+    "outOfStock": "સ્ટોક સમાપ્ત",
+    "keyFeatures": "મુખ્ય વિશેષતાઓ",
+    "growingInfo": "વાવણી સંબંધિત માહિતી",
+    "growingConditions": "વાવણીની પરિસ્થિતિ",
+    "yieldEstimates": "ઉત્પાદન અંદાજ",
+    "packaging": "પેકેજિંગ અને ઉપયોગ",
+    "agronomy": "કૃષિ અને વ્યવસ્થાપન",
+    "soil": "જમીન",
+    "waterIrrigation": "પાણી અને સિંચાઈ",
+    "sowing": "વાવણી",
+    "preparation": "તૈયારી",
+    "sowingDepth": "વાવણીની ઊંડાઈ",
+    "spacing": "અંતર",
+    "sowingMethods": "વાવણીની પદ્ધતિઓ",
+    "sowingTime": "વાવણીનો સમય",
+    "seedRate": "બીજ દર",
+    "harvesting": "કાપણી",
+    "postCutting": "કાપણી પછીની પ્રવૃત્તિઓ",
+    "fertilizer": "ખાતર",
+    "weedControl": "નિંદણ નિયંત્રણ",
+    "pestManagement": "કીડા અને રોગ વ્યવસ્થાપન",
+    "downloadSpec": "વિશિષ્ટતા પત્રક ડાઉનલોડ કરો",
+    "downloadPDF": "PDF ડાઉનલોડ કરો"
+  }
+}
+
