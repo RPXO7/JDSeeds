@@ -1,6 +1,132 @@
 {
-  "bhinda": {},
-  "gawar": {},
-  "choli": {}
+  "bhinda": {
+    "name": "Bhinda",
+    "description": "High-yield okra suited to monsoon, winter and summer sowings. Performs best on well‑drained sandy loam soils rich in organic matter with assured drainage.",
+    "features": [
+      "Multiple sowing windows (monsoon, winter, summer)",
+      "Early picking begins ~45–60 days after sowing",
+      "Uniform, tender pods with good marketability",
+      "Responsive to balanced NPK and organic manures",
+      "Performs well on well‑drained sandy loams",
+      "Recommended interculture and vector management reduce losses",
+      "Good transport and shelf life at tender harvest",
+      "Suitable for line sowing and raised beds in monsoon"
+    ],
+    "details": {
+      "growingConditions": "Optimum temperature 22–30°C; avoid frost and prolonged waterlogging. Soils: well‑drained sandy loam to loam, pH 6.0–7.5, high organic matter.",
+      "yieldEstimates": "Tender marketable pods from 45–60 DAS with regular picking; yield depends on season and package of practices.",
+      "packaging": "Seed rate: 4–6 kg/ha (line sowing); 8–10 kg/ha (broadcast). Treat seed and ensure proper spacing for uniform stand."
+    },
+    "additionalInfo": {
+      "keyPoints": [
+        "Keep field well drained in monsoon; raised beds recommended.",
+        "Start interculture 20–25 DAS and repeat at 15–20 day intervals.",
+        "Balanced fertilization and timely irrigation improve pod quality.",
+        "Harvest at tender stage for premium price and consumer acceptance."
+      ],
+      "agronomy": {
+        "soil": "Sandy loam to loam, fertile, well‑drained; avoid waterlogging. Ideal pH 6.0–7.5 with added FYM/compost.",
+        "irrigation": "First irrigation immediately after sowing. Summer: every 5–8 days; winter: every 10–12 days; avoid moisture stress at flowering and pod set.",
+        "sowing": {
+          "preparation": "Create fine tilth with 2–3 ploughings; add well‑decomposed FYM. In monsoon, use raised beds/ridges for drainage.",
+          "depth": "2–3 cm for good emergence.",
+          "spacing": "Monsoon: 60 × 30 cm; Summer/Winter: 45 × 20 cm (adjust by vigor).",
+          "methods": ["Line sowing", "Behind‑plough furrow placement", "Raised beds (monsoon)"],
+          "timing": ["Monsoon: June–July", "Winter: September–December", "Summer: January–March"],
+          "seedRate": "4–6 kg/ha (line); 8–10 kg/ha (broadcast)"
+        },
+        "harvesting": "Begin picking 45–60 DAS depending on season and vigor. Pick at tender stage; avoid over‑mature pods to maintain quality.",
+        "postCutting": "Maintain regular picking intervals (1–2 days) for continuous flush; irrigate and top‑dress as required.",
+        "fertilizer": "Basal (typical): N:P:K = 100:50:50 kg/ha; split nitrogen with top‑dressings based on crop stage and soil test.",
+        "weedControl": "Interculture from 20–25 DAS; maintain weed‑free for first 35–40 days. Mulch or pre‑emergence herbicide as per local recommendation.",
+        "pestManagement": "For whitefly/leafhopper vectors, follow IPM: rouging, yellow sticky traps, recommended insecticides as per local advisories. Manage powdery mildew/leaf spots per extension guidance."
+      }
+    }
+  },
+  "gawar": {
+    "name": "Gawar",
+    "description": "Cluster bean adapted to sandy loam to clay loam; tolerant to salinity (pH 7.0–8.5). Suitable for Kharif and irrigated summer cropping.",
+    "features": [
+      "Salinity tolerant; pH 7.0–8.5",
+      "Kharif and summer sowings",
+      "Seed rate 18–20 kg/ha; spacing 45–60 × 20–30 cm",
+      "Rhizobium + fungicide seed treatment improves stand",
+      "3–4 irrigations in summer (rainfed in Kharif)",
+      "Harvest tender pods from 45–60 DAS"
+    ],
+    "details": {
+      "growingConditions": "Best on sandy loam to clay loam, tolerates mild salinity; pH 7.0–8.5. Warm conditions with assured drainage.",
+      "yieldEstimates": "Frequent picking of tender pods from 45–60 DAS; yield governed by variety and management.",
+      "packaging": "Seed rate: 18–20 kg/ha. Spacing: 45–60 cm between rows; 20–30 cm between plants."
+    },
+    "additionalInfo": {
+      "keyPoints": [
+        "Apply 10–15 t/ha FYM during field preparation.",
+        "Basal 20:40:40 NPK kg/ha; adjust by soil test.",
+        "First weeding at 20–25 DAS; 1–2 more as needed."
+      ],
+      "agronomy": {
+        "soil": "Sandy loam to clay loam; salinity tolerant; pH 7–8.5 with good drainage.",
+        "irrigation": "Summer crop: 3–4 irrigations at critical stages (flowering, pod fill). Kharif: mostly rainfed.",
+        "sowing": {
+          "preparation": "2–3 ploughings; incorporate FYM. Treat seed with Rhizobium and Carbendazim 2 g/kg.",
+          "depth": "2–3 cm.",
+          "spacing": "Row: 45–60 cm; Plant: 20–30 cm.",
+          "methods": ["Direct line sowing", "Broadcasting (for sole vegetable)"],
+          "timing": ["Kharif: June–July", "Summer (irrigated): Feb–March"],
+          "seedRate": "18–20 kg/ha"
+        },
+        "harvesting": "Harvest green tender pods starting 45–60 DAS; pick at 3–4 day intervals.",
+        "postCutting": "Maintain field moisture for continuous pod setting; remove over‑mature pods.",
+        "fertilizer": "Basal 20:40:40 kg/ha N:P:K; apply micronutrients per soil test.",
+        "weedControl": "First weeding 20–25 DAS; keep field weed‑free during early growth.",
+        "pestManagement": "Pod borers: follow recommended molecules (e.g., Indoxacarb/Spinosad as locally advised). Diseases: powdery mildew – Sulphur; bacterial blight – Copper Oxychloride as per label."
+      }
+    }
+  },
+  "choli": {
+    "name": "Choli (Cowpea)",
+    "description": "Cowpea for vegetable use; performs across Kharif, Rabi (South) and Summer with proper agronomy. Earlier maturity in slightly sandy soils under cool conditions.",
+    "features": [
+      "Multiple seasons: Kharif, Rabi (South India), and Summer",
+      "Seed rate: 12–18 kg/ha (grain); 30–35 kg/ha (fodder/green manure)",
+      "Spacing: 45–30 × 10–15 cm",
+      "Seed treatment: Thiram + Carbendazim; Rhizobium inoculation",
+      "5–6 irrigations in summer at 10–15 day intervals",
+      "Green pods 45–90 DAS (variety‑dependent)"
+    ],
+    "details": {
+      "growingConditions": "Well‑drained loam to slightly heavy soils; slightly sandy in cool zones for earliness. Two ploughings + planking recommended.",
+      "yieldEstimates": "Vegetable: tender pods 45–90 DAS. Grain: harvest 90–125 DAS at full maturity.",
+      "packaging": "Seed rate pure crop (grain): 12–18 kg/ha; fodder/green manure: 30–35 kg/ha. Spacing rows 45–30 cm × plants 10–15 cm."
+    },
+    "additionalInfo": {
+      "keyPoints": [
+        "Weed‑free up to 25–30 DAS is critical.",
+        "Starter dose N (15–20 kg/ha) in poor soils; follow soil test for P & K.",
+        "Irrigation priority: flowering → pod fill → vegetative."
+      ],
+      "agronomy": {
+        "soil": "Loam to slightly heavy; slightly sandy for earlier maturity under cool conditions.",
+        "irrigation": "Summer: 5–6 irrigations at 10–15 day intervals; avoid prolonged waterlogging.",
+        "sowing": {
+          "preparation": "Two ploughings; treat seed with Thiram 2 g + Carbendazim 1 g/kg; inoculate with Rhizobium @ 10 g/kg.",
+          "depth": "2–3 cm.",
+          "spacing": "Rows 45–30 cm; Plants 10–15 cm.",
+          "methods": ["Broadcasting (fodder/green manure)", "Line sowing (better for grain)", "Dibbling"],
+          "timing": [
+            "Kharif: early June to end of July",
+            "Rabi (South): Oct–Nov",
+            "Summer: Mar (grain), Feb (fodder)"
+          ],
+          "seedRate": "12–18 kg/ha (grain); 30–35 kg/ha (fodder/green manure); summer grain 12–15 kg/ha"
+        },
+        "harvesting": "Vegetable: pick green pods 45–90 DAS; Grain: harvest 90–125 DAS, dry and thresh; sun‑dry before storage.",
+        "postCutting": "Maintain moisture after weeding and fertilization; ensure drainage to prevent root issues.",
+        "fertilizer": "Poor soils: starter N 15–20 kg/ha (OC < 0.5%); P2O5 and K2O 50–60 kg/ha as per soil test; FYM 5–10 t/ha.",
+        "weedControl": "Keep weed‑free up to 25–30 DAS; interculture as needed.",
+        "pestManagement": "Pod borer: follow recommended molecules; aphids/leafhopper: spray per local advisory; powdery mildew/leaf spots: use labelled fungicides as recommended."
+      }
+    }
+  }
 }
-
