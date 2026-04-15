@@ -6,79 +6,47 @@ import Image from 'next/image';
 import type { Product } from '@/lib/schemas/product';
 import { useI18n } from '@/lib/i18n/client';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { getTranslatedProduct, loadProductsTranslations } from '@/lib/i18n/product-translations';
 import { 
   FaArrowLeft, FaSeedling, FaLeaf, FaWater, FaSun, FaChartLine, 
-  FaListUl, FaFlask, FaSpa, FaCalendarAlt, 
+  FaFlask, FaSpa, FaCalendarAlt, 
   FaClipboardList, FaCut, FaRunning, FaPrescriptionBottleAlt, FaShieldAlt 
 } from 'react-icons/fa';
 
 interface ProductDetailContentProps {
-  product: Product;
+  /** Canonical catalog row; all locale merges start from this object. */
+  catalogProduct: Product;
+  /** Server-rendered merge for cookie locale (hydration + first paint). */
+  initialMergedProduct: Product;
   showBackLink?: boolean;
 }
 
-// This will be populated with product translations
-// Structure: { [slug]: { [locale]: { name, description, ... } } }
-let productTranslations: Record<string, Record<string, any>> = {};
-
-// Function to load product translations
-async function loadProductTranslations(slug: string, locale: string) {
-  try {
-    const response = await fetch(`/locales/${locale}/products.json`);
-    const data = await response.json();
-    return data[slug] || {};
-  } catch {
-    return {};
-  }
-}
-
-// Function to get translated product
-function getTranslatedProduct(product: Product, locale: string, translations: any): Product {
-  if (!translations || Object.keys(translations).length === 0) {
-    return product; // Return original if no translations
-  }
-
-  return {
-    ...product,
-    name: translations.name || product.name,
-    description: translations.description || product.description,
-    features: translations.features || product.features,
-    details: translations.details ? {
-      ...product.details,
-      ...translations.details,
-    } : product.details,
-    additionalInfo: translations.additionalInfo ? {
-      ...product.additionalInfo,
-      keyPoints: translations.additionalInfo.keyPoints || product.additionalInfo?.keyPoints,
-      agronomy: translations.additionalInfo.agronomy ? {
-        ...product.additionalInfo?.agronomy,
-        ...translations.additionalInfo.agronomy,
-        sowing: translations.additionalInfo.agronomy.sowing ? {
-          ...product.additionalInfo?.agronomy?.sowing,
-          ...translations.additionalInfo.agronomy.sowing,
-        } : product.additionalInfo?.agronomy?.sowing,
-      } : product.additionalInfo?.agronomy,
-    } : product.additionalInfo,
-  };
-}
-
-export function ProductDetailContent({ product, showBackLink = true }: ProductDetailContentProps) {
+export function ProductDetailContent({
+  catalogProduct,
+  initialMergedProduct,
+  showBackLink = true,
+}: ProductDetailContentProps) {
   const { locale, t } = useI18n();
-  const [translatedProduct, setTranslatedProduct] = useState(product);
-  const [isLoading, setIsLoading] = useState(true);
+  const [translatedProduct, setTranslatedProduct] = useState(initialMergedProduct);
 
   useEffect(() => {
-    async function loadTranslations() {
-      setIsLoading(true);
-      const translations = await loadProductTranslations(product.slug, locale);
-      const translated = getTranslatedProduct(product, locale, translations);
-      setTranslatedProduct(translated);
-      setIsLoading(false);
-    }
-    loadTranslations();
-  }, [product, locale]);
+    let cancelled = false;
 
-  if (!product) {
+    async function loadTranslations() {
+      const bySlug = await loadProductsTranslations(locale);
+      if (cancelled) return;
+      setTranslatedProduct(
+        getTranslatedProduct(catalogProduct, bySlug[catalogProduct.slug], { locale }),
+      );
+    }
+
+    void loadTranslations();
+    return () => {
+      cancelled = true;
+    };
+  }, [catalogProduct, locale]);
+
+  if (!catalogProduct) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center p-4">
         <h1 className="text-3xl font-bold text-gray-800 mb-4">{t('product.notFound', 'Product Not Found')}</h1>
@@ -93,7 +61,7 @@ export function ProductDetailContent({ product, showBackLink = true }: ProductDe
     );
   }
 
-  const currentProduct = isLoading ? product : translatedProduct;
+  const currentProduct = translatedProduct;
   const featuresList = Array.isArray(currentProduct?.additionalInfo?.keyPoints) && currentProduct.additionalInfo.keyPoints.length > 0
     ? currentProduct.additionalInfo.keyPoints
     : currentProduct.features;
@@ -175,7 +143,7 @@ export function ProductDetailContent({ product, showBackLink = true }: ProductDe
                 <ul className="space-y-2">
                   {featuresList.map((feature, index) => (
                     <li key={index} className="flex items-start">
-                      <FaSeedling className="text-[#FF8A00] mt-1 mr-2 flex-shrink-0" />
+                      <FaSeedling className="text-[#FF8A00] mt-1 mr-2 shrink-0" />
                       <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}

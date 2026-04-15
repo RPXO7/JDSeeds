@@ -6,7 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "catalog:check": "tsx scripts/check-catalog.mts",
+    "i18n:check": "tsx scripts/check-i18n.mts",
+    "i18n:check:strict": "tsx scripts/check-i18n.mts --strict",
+    "slug:gen": "tsx scripts/slug-gen.mts",
+    "qr:gen": "tsx scripts/generate-qr.mts",
+    "qr:gen:one": "tsx scripts/generate-qr.mts",
+    "qr:gen:local": "tsx scripts/generate-qr.mts --baseUrl=http://localhost:3000"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.17",
@@ -15,6 +22,8 @@
     "i18next": "^25.7.4",
     "next": "16.1.2",
     "next-i18next": "^15.4.3",
+    "nodemailer": "^7.0.6",
+    "qrcode": "^1.5.4",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-i18next": "^16.5.3",
@@ -24,11 +33,14 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/qrcode": "^1.5.5",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.2",
     "tailwindcss": "^4",
+    "tsx": "^4.20.6",
     "typescript": "^5"
   }
 }

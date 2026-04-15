@@ -1,18 +1,40 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { products, getAllCategories } from '@/data/products';
+import { useI18n } from '@/lib/i18n/client';
+import { getTranslatedProduct, loadProductsTranslations, type ProductsTranslationsBySlug } from '@/lib/i18n/product-translations';
 
 export default function ProductsPage() {
+  const { locale, t } = useI18n();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [translationsBySlug, setTranslationsBySlug] = useState<ProductsTranslationsBySlug>({});
 
   const categories = getAllCategories();
 
+  useEffect(() => {
+    let isCancelled = false;
+
+    async function run() {
+      const data = await loadProductsTranslations(locale);
+      if (!isCancelled) setTranslationsBySlug(data);
+    }
+
+    run();
+    return () => {
+      isCancelled = true;
+    };
+  }, [locale]);
+
+  const localizedProducts = useMemo(() => {
+    return products.map((product) => getTranslatedProduct(product, translationsBySlug[product.slug]));
+  }, [translationsBySlug]);
+
   const filteredProducts = useMemo(() => {
-    return products.filter((product) => {
+    return localizedProducts.filter((product) => {
       const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
       const matchesSearch =
         searchQuery === '' ||
@@ -20,16 +42,16 @@ export default function ProductsPage() {
         product.description.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [localizedProducts, selectedCategory, searchQuery]);
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] text-white py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-linear-to-br from-[#1B5E20] to-[#2E7D32] text-white py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Products</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('products.title', 'Our Products')}</h1>
           <p className="text-xl text-green-100 max-w-3xl mx-auto">
-            Browse our complete catalog of premium quality seeds
+            {t('products.subtitle', 'Browse our complete catalog of premium quality seeds')}
           </p>
         </div>
       </section>
@@ -42,7 +64,7 @@ export default function ProductsPage() {
             <div className="flex-1">
               <input
                 type="text"
-                placeholder="Search products..."
+                placeholder={t('products.searchPlaceholder', 'Search products...')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B5E20] focus:border-transparent"
@@ -55,7 +77,7 @@ export default function ProductsPage() {
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B5E20] focus:border-transparent"
               >
-                <option value="all">All Categories</option>
+                <option value="all">{t('products.allCategories', 'All Categories')}</option>
                 {categories.map((category) => (
                   <option key={category} value={category}>
                     {category}
@@ -72,14 +94,15 @@ export default function ProductsPage() {
         <div className="max-w-7xl mx-auto">
           {filteredProducts.length === 0 ? (
             <div className="text-center py-16">
-              <p className="text-xl text-gray-600 mb-4">No products found</p>
-              <p className="text-gray-500">Try adjusting your search or filter criteria</p>
+              <p className="text-xl text-gray-600 mb-4">{t('products.noneFound', 'No products found')}</p>
+              <p className="text-gray-500">{t('products.noneFoundHint', 'Try adjusting your search or filter criteria')}</p>
             </div>
           ) : (
             <>
               <div className="mb-6">
                 <p className="text-gray-600">
-                  Showing {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}
+                  {t('products.showing', 'Showing')} {filteredProducts.length}{' '}
+                  {t('products.productLabel', filteredProducts.length !== 1 ? 'products' : 'product')}
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -118,7 +141,7 @@ export default function ProductsPage() {
                         </ul>
                       )}
                       <div className="flex items-center text-[#1B5E20] font-medium group-hover:text-[#2E7D32] transition-colors">
-                        View Details
+                        {t('products.viewDetails', 'View Details')}
                         <span className="ml-2 group-hover:translate-x-2 transition-transform">→</span>
                       </div>
                     </div>

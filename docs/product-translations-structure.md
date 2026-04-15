@@ -59,6 +59,28 @@ Each product translation file should follow this structure:
 }
 ```
 
+## Partial overrides (recommended)
+
+You do **not** need to duplicate the entire product object in every locale.
+
+- The catalog (`src/data/products.ts`) is the base.
+- `public/locales/{locale}/products.json` is treated as **overrides** and is merged deeply.
+
+So for a new product, it is valid to translate only:
+
+- `name`
+- `description`
+- `features`
+
+and omit other nested fields until you are ready to translate them.
+
+## Tokens (optional, advanced)
+
+Any string field may contain tokens like `{{SEED_RATE}}`.
+
+- Token variables are defined per product slug in `src/lib/catalog/product-variables.ts`
+- Tokens are replaced after the locale merge.
+
 ## Example for Bhinda Product
 
 ### English (en/products.json)

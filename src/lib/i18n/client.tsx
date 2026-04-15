@@ -1,7 +1,14 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { Locale, defaultLocale, locales } from './config';
+import { Locale, defaultLocale } from './config';
+import {
+  LOCALE_CHANGE_EVENT,
+  isAllowedLocale,
+  parseLocaleCookie,
+  setLocaleCookie as writeLocaleCookie,
+  type LocaleChangeDetail,
+} from '@/lib/locale';
 
 interface I18nContextType {
   locale: Locale;
@@ -16,16 +23,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const [translations, setTranslations] = useState<Record<string, any>>({});
 
   useEffect(() => {
-    // Load locale from cookie
-    const cookieLocale = document.cookie
-      .split('; ')
-      .find((row) => row.startsWith('locale='))
-      ?.split('=')[1] as Locale | undefined;
-
-    const initialLocale = (cookieLocale && locales.includes(cookieLocale)) 
-      ? cookieLocale 
-      : defaultLocale;
-    
+    const initialLocale = parseLocaleCookie(document.cookie) ?? defaultLocale;
     setLocaleState(initialLocale);
     loadTranslations(initialLocale);
   }, []);
@@ -41,14 +39,14 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   };
 
   const setLocale = (loc: Locale) => {
-    if (!locales.includes(loc)) return;
-    
+    if (!isAllowedLocale(loc)) return;
     setLocaleState(loc);
-    document.cookie = `locale=${loc}; path=/; max-age=31536000; SameSite=Lax`;
+    writeLocaleCookie(loc);
     loadTranslations(loc);
-    
-    // Dispatch event for other components
-    window.dispatchEvent(new CustomEvent('locale-change', { detail: { locale: loc } }));
+
+    window.dispatchEvent(
+      new CustomEvent<LocaleChangeDetail>(LOCALE_CHANGE_EVENT, { detail: { locale: loc } }),
+    );
   };
 
   const t = (key: string, fallback?: string): string => {

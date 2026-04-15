@@ -124,6 +124,105 @@ export const products: Product[] = [
       },
     },
   },
+  {
+    id: '2001',
+    slug: 'lagan-51-bg-ii',
+    name: 'LAGAN-51 BG II',
+    category: 'Cotton Seeds',
+    image: '/assets/products/lagan-51-bg-ii-1.png',
+    description:
+      'Hybrid cotton seed with Bollgard II technology providing effective bollworm resistance, strong plant growth, and high yield potential.',
+    features: [
+      'Bollgard II (BG-II) dual gene technology',
+      'Suitable for irrigated and rainfed conditions',
+      'Medium to long duration crop (150–180 days)',
+      'Uniform boll opening and good boll size',
+      'High yield and fiber quality',
+    ],
+    germinationRate: 75,
+    stock: 120,
+    details: {
+      growingConditions:
+        'Best suited for black cotton soil and well-drained loamy soils. Requires warm climate and good sunlight. Ideal pH: 6.0–8.0.',
+      yieldEstimates: 'Approx. 20–30 quintals/ha under good agronomic practices.',
+      packaging: 'Standard cotton seed packet (~450–475g). Includes Refuge in Bag (RIB) as per govt norms.',
+    },
+    additionalInfo: {
+      keyPoints: [
+        'BG-II technology protects against bollworms',
+        'Refuge in Bag (RIB) compliance',
+        'Suitable for Central & South India cotton zones',
+        'Good fiber strength and market value',
+      ],
+      agronomy: {
+        soil: 'Deep black soil or well-drained loamy soil with good moisture retention.',
+        irrigation: 'Critical irrigation at flowering and boll formation stage. Avoid waterlogging.',
+        sowing: {
+          preparation: 'Deep ploughing + 2–3 harrowings. Apply 10–15 tons FYM/ha.',
+          depth: '3–5 cm',
+          spacing: 'Row: 90–120 cm; Plant: 45–60 cm',
+          methods: ['Dibbling', 'Line sowing'],
+          timing: ['May–June (Kharif season)'],
+          seedRate: '1.5–2 kg/acre',
+        },
+        harvesting: 'Start picking after 140–160 days. Multiple pickings required.',
+        postCutting: 'Store kapas in dry condition to maintain fiber quality.',
+        fertilizer: 'NPK 100:50:50 kg/ha (adjust as per soil test).',
+        weedControl: 'Manual weeding at 20–25 DAS and 45 DAS or herbicide use.',
+        pestManagement: 'Controls bollworms (BG-II). Monitor sucking pests like whitefly, aphids, jassids.',
+      },
+    },
+  },
+  {
+    id: '2003',
+    slug: 'vintage-555-bg-ii',
+    name: 'VINTAGE-555 BG II',
+    category: 'Cotton Seeds',
+    image: '/assets/products/vintage-555-bg-ii.png',
+    description:
+      'High-performance hybrid cotton seed with Bollgard II technology, offering strong plant structure, excellent boll formation, and high yield potential in multiple agro-climatic zones.',
+    features: [
+      'Bollgard II (BG-II) dual gene technology',
+      'Effective protection against bollworms',
+      'Suitable for irrigated & rainfed farming',
+      'Strong plant structure with good branching',
+      'Uniform boll opening and easy picking',
+    ],
+    germinationRate: 75,
+    stock: 110,
+    details: {
+      growingConditions:
+        'Best suited for black cotton soil and well-drained loamy soils. Performs well in warm climates with moderate rainfall. Ideal pH range: 6.0–8.0.',
+      yieldEstimates: 'Approx. 22–32 quintals/ha depending on irrigation and crop management.',
+      packaging:
+        'Standard 450–475g cotton seed packet with Refuge in Bag (RIB) compliance as per government norms.',
+    },
+    additionalInfo: {
+      keyPoints: [
+        'BG-II technology for bollworm resistance',
+        'Refuge in Bag (RIB) included',
+        'Good adaptability across cotton-growing regions',
+        'High kapas yield with consistent boll size',
+      ],
+      agronomy: {
+        soil: 'Deep black soil or loamy soil with good drainage and moisture retention.',
+        irrigation: 'Irrigation required at flowering and boll development stage. Avoid excess water.',
+        sowing: {
+          preparation: 'Deep ploughing followed by 2–3 harrowings. Apply FYM 10–15 tons/ha.',
+          depth: '3–5 cm',
+          spacing: 'Row spacing: 90–120 cm; Plant spacing: 45–60 cm',
+          methods: ['Dibbling', 'Line sowing'],
+          timing: ['Kharif: May–June (monsoon onset)'],
+          seedRate: '1.5–2 packets per acre',
+        },
+        harvesting: 'First picking starts around 140–160 days after sowing with multiple pickings.',
+        postCutting: 'Harvest in dry condition and store properly to maintain fiber quality.',
+        fertilizer: 'Recommended NPK: 100:50:50 kg/ha (adjust as per soil test).',
+        weedControl: 'Manual weeding at 20–25 DAS and 45 DAS or use herbicides.',
+        pestManagement: 'BG-II controls bollworms; monitor sucking pests like aphids, jassids, and whiteflies.',
+      },
+    },
+  },
 ];
 
 export function getAllCategories(): string[] {

@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Project docs (important)
+
+- `docs/memory/` — session notes and decisions (what was built and why)
+- `docs/rules/` — strict invariants (QR + slug + locale) that must not be changed casually
+- `docs/flows/` — operational flows (product addition, language switching, QR generation)
+
 ## Getting Started
 
 First, run the development server:

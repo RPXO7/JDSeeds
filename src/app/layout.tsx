@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Providers from "./providers";
 import { Navbar } from "@/components/navbar";
@@ -19,6 +20,9 @@ export const metadata: Metadata = {
   description: "JD SEEDS - Your trusted partner in agriculture. Premium quality seeds for superior yields across diverse categories.",
   keywords: ["seeds", "agriculture", "farming", "JD SEEDS", "vegetable seeds", "crop seeds"],
   authors: [{ name: "JD SEEDS" }],
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -37,6 +41,10 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  themeColor: "#1B5E20",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -44,11 +52,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="theme-color" content="#1B5E20" />
-        <script
+      <body className={`${inter.variable} font-sans antialiased`}>
+        <Script
+          id="org-jsonld"
           type="application/ld+json"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
@@ -60,8 +68,6 @@ export default function RootLayout({
             }),
           }}
         />
-      </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
