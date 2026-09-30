@@ -223,6 +223,56 @@ export const products: Product[] = [
       },
     },
   },
+  {
+    id: '1004',
+    slug: 'chana',
+    name: 'Gram (Chana)',
+    category: 'Pulse Seeds',
+    image: '/assets/brands/jd-seeds.png',
+    description:
+      'Rabi-season gram (chickpea) suited to well-drained goradu or medium black soils with pH 6.5–7.5. Sown from 15 October to 15 November.',
+    features: [
+      'Rabi sowing: 15 October – 15 November',
+      'Seed rate 60 kg/ha',
+      'Spacing 30 × 10 cm',
+      'Harvest when 80–90% of pods turn yellow',
+    ],
+    details: {
+      growingConditions:
+        'Well-drained goradu (sandy loam) or medium black soil is most suitable. Soil pH should be between 6.5 and 7.5.',
+    },
+    additionalInfo: {
+      keyPoints: [
+        'Suited to well-drained goradu or medium black soil (pH 6.5–7.5)',
+        'Three irrigations: 20, 40 and 60 days after sowing',
+        'Seed treated with Thiram/Carbendazim or Trichoderma viride before sowing',
+        'Pod borer controlled with Quinalphos or Cypermethrin',
+      ],
+      agronomy: {
+        soil: 'Well-drained goradu (sandy loam) or medium black soil is most suitable. Soil pH should be between 6.5 and 7.5.',
+        irrigation:
+          'Irrigate at 20, 40 and 60 days after sowing. Give the first irrigation 20–25 days after sowing, the second at the flowering stage, and the third at the grain-filling stage in the pods. The number of irrigations may vary with soil type and climate.',
+        sowing: {
+          preparation:
+            'Deep ploughing before sowing. Before sowing, treat the seed with a chemical fungicide (such as Thiram or Carbendazim at 2–3 g per kg of seed) or a biological fungicide (Trichoderma viride at 4 g per kg of seed).',
+          depth: '3–5 cm',
+          spacing: '30 × 10 cm',
+          methods: ['Seed drill (orani)', 'Dropping seed into furrows behind the plough'],
+          timing: ['Rabi (winter): 15 October – 15 November'],
+          seedRate: '60 kg/ha',
+        },
+        harvesting:
+          'The crop is considered ready for harvest when 80–90% of the pods turn yellow and the leaves begin to fall.',
+        postCutting:
+          'After the crop has dried, separate the grain with a thresher or by hand.',
+        fertilizer: 'Total 20:40:00 NPK (kg/ha).',
+        weedControl:
+          'Remove weeds 20–25 days after sowing by hand weeding or intercultivation. For effective weed control, pre-emergence application of the herbicide Pendimethalin @ 1 kg a.i./ha is recommended.',
+        pestManagement:
+          'Wilt: at sowing, treat the seed with fungicides such as Carbendazim + Thiram (1 g + 2 g per kg of seed). Pod borer: spray Quinalphos 25 EC at 20 ml, or Cypermethrin 25 EC at 5 ml, per 10 litres of water.',
+      },
+    },
+  },
 ];
 
 export function getAllCategories(): string[] {
