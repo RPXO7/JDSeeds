@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { use, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   getDefaultLocale,
@@ -22,7 +22,8 @@ function resolveLocaleFromNavigator(): Locale | null {
   return null;
 }
 
-export default function QrEntryPage({ params }: { params: { slug: string } }) {
+export default function QrEntryPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug: rawSlug } = use(params);
   const router = useRouter();
 
   useEffect(() => {
@@ -38,13 +39,13 @@ export default function QrEntryPage({ params }: { params: { slug: string } }) {
       }),
     );
 
-    const slug = params.slug?.trim();
+    const slug = rawSlug?.trim();
     if (!slug) {
       router.replace('/products');
       return;
     }
     router.replace(`/products/${slug}`);
-  }, [params.slug, router]);
+  }, [rawSlug, router]);
 
   // Minimal, no layout shift.
   return null;
